@@ -1,8 +1,202 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-h1{
-    color: red;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    background-color: #5429cc;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header button {
+    background-color: #5429cc;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+header button:hover {
+    background-color: #6933ff;
+}
+
+main {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: -4rem auto 2rem auto;
+    padding: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.total {
+    text-align: right;
+}
+
+.total h2 {
+    font-size: 1.25rem;
+}
+
+.total p {
+    font-size: 1.75rem;
+}
+
+.entradas-saidas {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.entradas {
+    border-left: 4px solid #12a454;
+}
+
+.saidas {
+    border-left: 4px solid #e92929;
+}
+
+h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1.25rem;
+}
+
+.historico ul {
+    list-style: none;
+}
+
+.historico li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin: 0.5rem 0;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.historico li p {
+    font-size: 1.25rem;
+}
+
+.historico li .data {
+    font-size: 1rem;
+    color: #888;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+}
+
+.botoes button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.botoes .cancelar {
+    background-color: #e92929;
+    color: #fff;
+    margin-right: 1rem;
+}
+
+.botoes .cancelar:hover {
+    background-color: #ff4545;
+}
+
+.botoes .confirmar {
+    background-color: #12a454;
+    color: #fff;
+}
+
+.botoes .confirmar:hover {
+    background-color: #14b459;
+}
+
+.excluir {
+    background-color: #e92929;
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.excluir:hover {
+    background-color: #ff4545;
 }

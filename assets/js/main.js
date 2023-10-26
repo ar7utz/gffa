@@ -31,6 +31,8 @@ function atualizarBalanco() {
     saidasElement.textContent = `R$ ${Math.abs(saidas)}`;
 }
 
+let indiceEdicao = -1; // Inicialmente, não estamos editando nenhuma transação
+
 function adicionarTransacao() {
     const descricao = descricaoInput.value.trim();
     const valor = parseFloat(valorInput.value);
@@ -41,19 +43,33 @@ function adicionarTransacao() {
         return;
     }
 
-    const transacao = {
-        descricao,
-        valor,
-        data,
-    };
+    if (indiceEdicao !== -1) {
+        // Se estamos editando, atualize a transação existente
+        const transacaoEditada = {
+            descricao,
+            valor,
+            data,
+        };
+        transacoes[indiceEdicao] = transacaoEditada;
+    } else {
+        // Caso contrário, estamos adicionando uma nova transação
+        const transacao = {
+            descricao,
+            valor,
+            data,
+        };
+        transacoes.push(transacao);
+    }
 
-    transacoes.push(transacao);
-    atualizarHistorico(transacao);
+    atualizarHistorico();
     atualizarBalanco();
 
-    fecharModal();
+    // Limpe o formulário e redefina o índice de edição
     limparCampos();
+    indiceEdicao = -1;
+    fecharModal();
 }
+
 
 function atualizarHistorico(transacao) {
     const listItem = document.createElement('li');
@@ -91,8 +107,9 @@ function criarItemHistorico(transacao) {
         <p>${transacao.descricao}</p>
         <p>${valorPrefixo} R$ ${Math.abs(transacao.valor).toFixed(2)}</p>
         <p class="data">${transacao.data}</p>
-        <button class="excluir" onclick="removerTransacao(${transacoes.indexOf(transacao)})">Excluir</button>
-    `;
+        <button class="editar" onclick="editarTransacao(${transacoes.indexOf(transacao)})">Editar</button>
+        <button class="excluir" onclick="confirmarExclusao(${transacoes.indexOf(transacao)})">Excluir</button>
+        `;
 
     return listItem;
 }
@@ -114,3 +131,39 @@ function removerTransacao(index) {
 }
 
 atualizarBalanco();
+
+function confirmarExclusao(index) {
+    const modalConfirmarExclusao = document.getElementById('modalConfirmarExclusao');
+    const confirmarExcluirNotaButton = document.getElementById('confirmarExcluirNota');
+    const cancelarExcluirNotaButton = document.getElementById('cancelarExcluirNota');
+
+    // Exibe o modal de confirmação de exclusão
+    modalConfirmarExclusao.style.display = 'flex';
+
+    // Configura ação de confirmação
+    confirmarExcluirNotaButton.onclick = function () {
+        // Remove a transação e fecha o modal de confirmação
+        removerTransacao(index);
+        modalConfirmarExclusao.style.display = 'none';
+    };
+
+    // Configura ação de cancelamento
+    cancelarExcluirNotaButton.onclick = function () {
+        modalConfirmarExclusao.style.display = 'none';
+    };
+}
+
+function editarTransacao(index) {
+    const transacao = transacoes[index];
+
+    // Preencha os campos do formulário de edição com os valores atuais
+    descricaoInput.value = transacao.descricao;
+    valorInput.value = transacao.valor;
+    dataInput.value = transacao.data;
+
+    // Atualize o índice de edição para que saibamos qual transação estamos editando
+    indiceEdicao = index;
+
+    // Abra o modal de edição
+    abrirModal();
+}

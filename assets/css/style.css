@@ -167,7 +167,7 @@ h3 {
     cursor: pointer;
 }
 
-.botoes .cancelar {
+.botoes .cancelar{
     background-color: #e92929;
     color: #fff;
     margin-right: 1rem;
@@ -199,4 +199,59 @@ h3 {
 
 .excluir:hover {
     background-color: #ff4545;
+}
+
+#modalConfirmarExclusao{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.modal-content{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#confirmarExcluirNota{
+    background-color: #12a454;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+#cancelarExcluirNota{
+    background-color: #ff4545;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.editar {
+    background-color: #5429cc;
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+    justify-content: flex-start;
+}
+
+#toggleModal{
+    border: 2px outset black;
 }

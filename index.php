@@ -7,6 +7,8 @@
     <meta http-equiv="content-language" content="pt-BR" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <link rel="icon" type="img" href="gffa-ico.ico"/>
+
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/scrollbar.css" />
 
@@ -71,6 +73,9 @@
       </div>
     </div>
 
+    <footer>
+      Análise e Desenvolvimento de Sistemas - Fatec Araçatuba - 2023
+    </footer>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
